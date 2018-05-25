@@ -38,14 +38,14 @@ public class PlayerController {
     @GetMapping("{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
         Optional<Player> player = playerService.findOne(id);
-        model.addAttribute("player", player);
+        model.addAttribute("player", player.get());
         return "players/edit";
     }
 
     @GetMapping("{id}")
     public String show(@PathVariable Long id, Model model) {
         Optional<Player> player = playerService.findOne(id);
-        model.addAttribute("player", player);
+        model.addAttribute("player", player.get());
         return "players/show";
     }
 
